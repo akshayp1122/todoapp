@@ -73,8 +73,7 @@ class _TodoListPageState extends State<TodoListPage> {
           ),
         ],
       ),
-      body: Consumer<TodoProvider>(
-        builder: (context, todoProvider, child) {
+      body: Consumer<TodoProvider>(builder: (context, todoProvider, child) {
         return Column(
           children: [
             Expanded(
@@ -105,7 +104,8 @@ class _TodoListPageState extends State<TodoListPage> {
                               padding: const EdgeInsets.symmetric(
                                   vertical: 8.0, horizontal: 12.0),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   // Left-aligned content
                                   Expanded(
@@ -130,7 +130,7 @@ class _TodoListPageState extends State<TodoListPage> {
                                           context, todo.id, todo.title);
                                     },
                                   ),
-        
+
                                   // Existing trailing content (replace with your content)
                                   Checkbox(
                                     value: todo.isCompleted,
@@ -141,7 +141,7 @@ class _TodoListPageState extends State<TodoListPage> {
                                       todoProvider.updateTodo(todo.id, value!);
                                     },
                                   ),
-        
+
                                   // Delete button
                                   IconButton(
                                     icon: const Icon(Icons.delete,
@@ -167,25 +167,6 @@ class _TodoListPageState extends State<TodoListPage> {
                             ),
                           ),
                         );
-                        // ListTile(
-                        //   title: Text(
-                        //     todo.title,
-                        //     style: TextStyle(
-                        //       decoration: todo.isCompleted
-                        //           ? TextDecoration.lineThrough
-                        //           : TextDecoration.none,
-                        //     ),
-                        //   ),
-                        //   trailing: Checkbox(
-                        //     value: todo.isCompleted,
-                        //     onChanged: (value) {
-                        //       todoProvider.updateTodo(todo.id, value!);
-                        //     },
-                        //   ),
-                        //   onLongPress: () {
-                        //     todoProvider.deleteTodo(todo.id);
-                        //   },
-                        // );
                       },
                     ),
             ),
@@ -232,13 +213,12 @@ class _TodoListPageState extends State<TodoListPage> {
               ),
             ),
           ],
-        
         );
-        }
-      ),
+      }),
     );
   }
 }
+
 void _editTodoDialog(BuildContext context, String todoId, String currentTitle) {
   final _editController = TextEditingController(text: currentTitle);
 
@@ -278,5 +258,3 @@ void _editTodoDialog(BuildContext context, String todoId, String currentTitle) {
     },
   );
 }
-
-

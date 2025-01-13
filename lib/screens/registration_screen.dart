@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:todo_list_app/controller/auth_controller.dart';
 import 'package:todo_list_app/core/constants/size.dart';
@@ -24,16 +23,16 @@ class _SignUpState extends State<SignUp> {
     String res =
         await _authController.registerNewUser(email, password, fullName);
     if (res == 'success') {
-      ScaffoldMessenger.of(localContext).showSnackBar(
-          const SnackBar(content: Text("account have been created successfully")));
+      ScaffoldMessenger.of(localContext).showSnackBar(const SnackBar(
+          content: Text("account have been created successfully")));
       Future.delayed(Duration.zero, () {
         Navigator.push(localContext, MaterialPageRoute(builder: (context) {
           return SignIn();
         }));
       });
     } else {
-      ScaffoldMessenger.of(localContext)
-          .showSnackBar(const SnackBar(content: Text("account creation failed")));
+      ScaffoldMessenger.of(localContext).showSnackBar(
+          const SnackBar(content: Text("account creation failed")));
     }
   }
 
@@ -221,8 +220,6 @@ class _SignUpState extends State<SignUp> {
                               print("failed");
                             }
                           },
-                          // color: Colors.deepPurpleAccent,
-
                           child: const Text(
                             "Sign Up",
                             style: TextStyle(
